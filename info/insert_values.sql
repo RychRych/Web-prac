@@ -4,27 +4,23 @@ INSERT INTO client (id, full_name, address, phone_number) VALUES
 	(295738, 'Журавлева Анастасия Николаевна', 'шоссе Гоголя, 16', '81818907012')
 ;	
 
-INSERT INTO film (id, title, production_company, director, year_of_release) VALUES
+INSERT INTO film (id, title, production_company, director, year_of_release,
+				  available_cd, price_of_cd, available_cassette, 
+				  price_of_cassette) VALUES
 	(459, 'Зелёная миля', 'Castle Rock Entertainment Darkwoods Productions', 
-	 'Фрэнк Дарабонт', 1999),
+	 'Фрэнк Дарабонт', 1999, 15, 230, 10, 170),
 	(125, 'Список Шиндлера', 'Amblin Entertainment Universal Pictures', 
-	 'Стивен Спилберг', 1993),
-	(298, 'Побег из Шоушенка', 'Castle Rock Entertainment', 'Фрэнк Дарабонт', 1994)
+	 'Стивен Спилберг', 1993, 20, 140, 15, 135),
+	(298, 'Побег из Шоушенка', 'Castle Rock Entertainment', 'Фрэнк Дарабонт',
+	 1994, 40, 350, 24, 230)
 ;	
 
-
-INSERT INTO data_carrier (id, film_id, film_title, type, rent_price, is_available) VALUES
-	(37502, 459, 'Зелёная миля', 'cd', 230, 'false'),
-	(29571, 125, 'Список Шиндлера', 'cassette', 210, 'false'),
-	(29547, 298, 'Побег из Шоушенка', 'cd', 199, 'true')
-;	
-
-INSERT INTO transaction (id, client_id, carrier_id, film_title, rent_price, 
+INSERT INTO transaction (id, client_id, film_id, film_title, rent_price, 
 						 date_of_lease, date_of_return) VALUES
-	(675921, 295738, 29547, 'Побег из Шоушенка', 199, TO_DATE('17/12/2015', 'DD/MM/YYYY'),
+	(675921, 295738, 298, 'Побег из Шоушенка', 199, TO_DATE('17/12/2015', 'DD/MM/YYYY'),
 	 TO_DATE('27/12/2015', 'DD/MM/YYYY')),
-	(736592, 740297, 37502, 'Зелёная миля', 230, TO_DATE('13/08/2019', 'DD/MM/YYYY'),
+	(736592, 740297, 459, 'Зелёная миля', 230, TO_DATE('13/08/2019', 'DD/MM/YYYY'),
 	 TO_DATE('23/08/2019', 'DD/MM/YYYY')),
-	(668204, 134566, 29547, 'Побег из Шоушенка', 199, TO_DATE('03/04/2023', 'DD/MM/YYYY'),
+	(668204, 134566, 298, 'Побег из Шоушенка', 199, TO_DATE('03/04/2023', 'DD/MM/YYYY'),
 	 TO_DATE('30/04/2023', 'DD/MM/YYYY'))	 
 ;	
