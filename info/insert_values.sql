@@ -5,14 +5,14 @@ INSERT INTO client (id, full_name, address, phone_number) VALUES
 ;	
 
 INSERT INTO film (id, title, production_company, director, year_of_release,
-				  available_cd, price_of_cd, available_cassette, 
-				  price_of_cassette) VALUES
+				  available_cd, price_of_cd, available_cassette, price_of_cassette,
+				  total_of_cd, total_of_cassette) VALUES
 	(459, 'Зелёная миля', 'Castle Rock Entertainment Darkwoods Productions', 
-	 'Фрэнк Дарабонт', 1999, 15, 230, 10, 170),
+	 'Фрэнк Дарабонт', 1999, 15, 230, 10, 170, 800, 315),
 	(125, 'Список Шиндлера', 'Amblin Entertainment Universal Pictures', 
-	 'Стивен Спилберг', 1993, 20, 140, 15, 135),
+	 'Стивен Спилберг', 1993, 20, 140, 15, 135, 500, 250),
 	(298, 'Побег из Шоушенка', 'Castle Rock Entertainment', 'Фрэнк Дарабонт',
-	 1994, 40, 350, 24, 230)
+	 1994, 40, 350, 24, 230, 1000, 700)
 ;	
 
 INSERT INTO transaction (id, client_id, film_id, film_title, rent_price, 

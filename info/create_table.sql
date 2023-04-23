@@ -19,7 +19,9 @@ CREATE TABLE film (
 	available_cd			integer,
 	price_of_cd				real,
 	available_cassette		integer,
-	price_of_cassette		integer
+	price_of_cassette		integer,
+	total_of_cd				integer,
+	total_of_cassette		integer
 );
 
 
