@@ -1,7 +1,8 @@
+DROP TYPE carrier_type CASCADE;
 DROP TABLE transaction;
 DROP TABLE client;
 DROP TABLE film;
-
+CREATE TYPE carrier_type AS ENUM ('cassette', 'cd');
 
 CREATE TABLE client (
 	id 				serial		PRIMARY KEY,
@@ -30,6 +31,7 @@ CREATE TABLE transaction (
 	client_id			serial		REFERENCES client (id),
 	film_id			serial		REFERENCES film (id),
 	film_title			varchar(100),
+	type_of_carrier		carrier_type,
 	rent_price			real,
 	date_of_lease			date,
 	date_of_return  		date
