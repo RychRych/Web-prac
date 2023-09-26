@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
+</head>
+<body class="site">
+<main class="site-content">
+  <div id="clientInfo">
+    <h4 th:text="${client.getClientName()}"></h4>
+    <p th:text="'Адрес: ' + ${client.getClientAddress()}"></p>
+    <p th:text="'Телефон: ' + ${client.getClientPhone()}"></p>
+  </div>
+</main>
+
+<footer th:insert="general :: footer"></footer>
+</body>
+
+</html>

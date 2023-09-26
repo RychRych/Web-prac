@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
+</head>
+<body class="site">
+<main class="site-content">
+    <div id="filmInfo">
+        <h4 th:text="${client.getFullName()}"></h4>
+        <p th:text="'Компания: ' + ${film.getProduction_company()}"></p>
+        <p th:text="'Режиссер: ' + ${film.getDirector()}"></p>
+        <p th:text="'Год выпуска: ' + ${film.getYear_of_release()}"></p>
+        <p th:text="'Доступно дисков: ' + ${film.getAvailable_cd()}"></p>
+        <p th:text="'Стоимость диска: ' + ${film.getPrice_of_cd()}"></p>
+        <p th:text="'Доступно кассет: ' + ${film.getAvailable_cassette()}"></p>
+        <p th:text="'Стоимость кассеты: ' + ${film.getPrice_of_cassette()}"></p>
+    </div>
+</main>
+
+<footer th:insert="general :: footer"></footer>
+</body>
+
+</html>
