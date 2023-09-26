@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
+</head>
+<body class="site">
+<main class="site-content">
+    <script th:src="@{/js/dropdown.js}"></script>
+    <h1>Доступные фильмы</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Год выпуска
+            </th>
+            <th>
+                Статус
+            </th>
+            <th>
+                Стоимость (диск/касета)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${films.isEmpty()}">
+            <td colspan="3"> Фильмов по заданному фильтру не найдено. </td>
+        </tr>
+        <tr th:each="film : ${films}">
+            <td><a th:text="${film.getTitle()}" th:href="${'/employees/employee?id=' + film.getId()}"> Название </a></td>
+            <td><span th:text="${film.getYear_of_release()}"> Год </span></td>
+            <td><span th:text="${(film.getAvailable_cassette() > 0 || film.getAvailable_cd() > 0) ? 'В наличии' : 'Нет в наличии'}"> Статус </span></td>
+            <td><span th:text="${film.getPrice_of_cd() + '/' + film.getPrice_of_cassette()}"> Цена </span></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+
+<footer th:insert="general :: footer"></footer>
+</body>
+
+</html>

@@ -20,9 +20,9 @@ public class FilmDAOImpl extends GenericDAOImpl<Film> implements FilmDAO {
     public List<Film> getByTitle(String title) {
         try (Session session = sessionFactory.openSession()) {
             NativeQuery<Film> query = session.createNativeQuery(
-                    "SELECT * FROM film WHERE title LIKE :title",
+                    "SELECT * FROM film WHERE title LIKE :tit",
                     Film.class
-            ).setParameter("title", title);
+            ).setParameter("tit", "%" + title + "%");
             query.getResultList();
             return query.list();
         }
