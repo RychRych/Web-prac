@@ -24,7 +24,7 @@ public class FilmListController {
         Model model
     ) {
         List<Film> films;
-        if (title != null) {
+        if (title != null && !title.isEmpty()) {
             films = filmDAO.getByTitle(title);
         } else if (year != null) {
             films = filmDAO.getByYear(year);

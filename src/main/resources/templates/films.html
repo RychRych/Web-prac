@@ -10,6 +10,21 @@
 <main class="site-content">
     <script th:src="@{/js/dropdown.js}"></script>
     <h1>Доступные фильмы</h1>
+    <div style="display: flex; justify-content: space-between">
+        <div>
+            <form action="#" th:action="@{/films}" method="get">
+                Название
+                <label>
+                    <input type="text" th:name="title">
+                </label>
+                Год
+                <label>
+                    <input type="text" th:name="year">
+                </label>
+                <input type="submit" value="Поиск">
+            </form>
+        </div>
+    </div>
     <table>
         <thead>
         <tr>
