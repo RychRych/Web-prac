@@ -9,7 +9,7 @@
 <body class="site">
 <main class="site-content">
     <div id="filmInfo">
-        <h4 th:text="${client.getFullName()}"></h4>
+        <h4 th:text="${film.getTitle()}"></h4>
         <p th:text="'Компания: ' + ${film.getProduction_company()}"></p>
         <p th:text="'Режиссер: ' + ${film.getDirector()}"></p>
         <p th:text="'Год выпуска: ' + ${film.getYear_of_release()}"></p>
