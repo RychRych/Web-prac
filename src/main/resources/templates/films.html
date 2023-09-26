@@ -47,7 +47,7 @@
             <td colspan="3"> Фильмов по заданному фильтру не найдено. </td>
         </tr>
         <tr th:each="film : ${films}">
-            <td><a th:text="${film.getTitle()}" th:href="${'/employees/employee?id=' + film.getId()}"> Название </a></td>
+            <td><a th:text="${film.getTitle()}" th:href="${'/film?id=' + film.getId()}"> Название </a></td>
             <td><span th:text="${film.getYear_of_release()}"> Год </span></td>
             <td><span th:text="${(film.getAvailable_cassette() > 0 || film.getAvailable_cd() > 0) ? 'В наличии' : 'Нет в наличии'}"> Статус </span></td>
             <td><span th:text="${film.getPrice_of_cd() + '/' + film.getPrice_of_cassette()}"> Цена </span></td>
