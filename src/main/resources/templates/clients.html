@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
+</head>
+<body class="site">
+<main class="site-content">
+  <script th:src="@{/js/dropdown.js}"></script>
+  <h1>Клиенты</h1>
+  <div style="display: flex; justify-content: space-between">
+    <div>
+      <form action="#" th:action="@{/clients}" method="get">
+        Имя клиента
+        <label>
+          <input type="text" th:name="name">
+        </label>
+        <input type="submit" value="Поиск">
+      </form>
+    </div>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>
+        Имя
+      </th>
+      <th>
+        Адрес
+      </th>
+      <th>
+        Номер телефона
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${clients.isEmpty()}">
+      <td colspan="3"> Клиентов с именем не найдено. </td>
+    </tr>
+    <tr th:each="client : ${clients}">
+      <td><a th:text="${client.getClientName()}" th:href="${'/client?id=' + client.getId()}"> Имя </a></td>
+      <td><span th:text="${client.getClientAddress()}"> Адрес </span></td>
+      <td><span th:text="${client.getClientPhone()}"> Телефон </span></td>
+    </tr>
+    </tbody>
+  </table>
+</main>
+
+
+<footer th:insert="general :: footer"></footer>
+</body>
+
+</html>
