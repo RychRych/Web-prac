@@ -4,24 +4,23 @@
     <meta charset="UTF-8" />
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
 </head>
 <body class="site">
 <main class="site-content">
     <form action="#" th:action="@{/film}" method="post">
         <h4>Информация о фильме</h4>
         <input th:if="${film.getId() != null}" style="display: none;" name="id" th:value="${film.getId()}">
-        <p><label>Название:  <input th:value="${film.getTitle()}" name="title"></label></p>
-        <p><label>Компания:  <input th:value="${film.getProduction_company()}" name="company"></label></p>
-        <p><label>Режиссер:  <input th:value="${film.getDirector()}" name="director"></label></p>
-        <p><label>Год выпуска:  <input th:value="${film.getYear_of_release()}" name="year"></label></p>
-        <p><label>Доступно дисков:  <input th:value="${film.getAvailable_cd()}" name="availableCd"></label></p>
-        <p><label>Стоимость диска:  <input th:value="${film.getPrice_of_cd()}" name="cdPrice"></label></p>
-        <p><label>Доступно кассет:  <input th:value="${film.getAvailable_cassette()}" name="availableCassette"></label></p>
-        <p><label>Стоимость кассеты:  <input th:value="${film.getPrice_of_cassette()}" name="cassettePrice"></label></p>
-        <p><label>Всего кассет:  <input th:value="${film.getTotal_of_cassette()}" name="cassetteTotal"></label></p>
-        <p><label>Всего дисков:  <input th:value="${film.getTotal_of_cd()}" name="cdTotal"></label></p>
-        <input type="submit" value="Обновить информацию">
+        <p><label>Название:  <input class="inputText" th:value="${film.getTitle()}" name="title"></label></p>
+        <p><label>Компания:  <input class="inputText" th:value="${film.getProduction_company()}" name="company"></label></p>
+        <p><label>Режиссер:  <input class="inputText" th:value="${film.getDirector()}" name="director"></label></p>
+        <p><label>Год выпуска:  <input class="inputText" th:value="${film.getYear_of_release()}" name="year"></label></p>
+        <p><label>Доступно дисков:  <input  class="inputText" th:value="${film.getAvailable_cd()}" name="availableCd"></label></p>
+        <p><label>Стоимость диска:  <input  class="inputText" th:value="${film.getPrice_of_cd()}" name="cdPrice"></label></p>
+        <p><label>Доступно кассет:  <input  class="inputText" th:value="${film.getAvailable_cassette()}" name="availableCassette"></label></p>
+        <p><label>Стоимость кассеты:  <input  class="inputText" th:value="${film.getPrice_of_cassette()}" name="cassettePrice"></label></p>
+        <p><label>Всего кассет:  <input class="inputText" th:value="${film.getTotal_of_cassette()}" name="cassetteTotal"></label></p>
+        <p><label>Всего дисков:  <input class="inputText" th:value="${film.getTotal_of_cd()}" name="cdTotal"></label></p>
+        <input type="submit" value="Обновить информацию" class="button">
     </form>
 </main>
 

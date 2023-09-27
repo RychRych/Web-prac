@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
 </head>
 <body class="site">
 <main class="site-content">
@@ -17,19 +16,19 @@
             <p>
             <label>
                 Название фильма
-                <input type="text" th:name="filmName">
+                <input class="inputText" type="text" th:name="filmName">
             </label>
             </p>
             <p>
             <label>
                 Дата выдачи
-                <input type="text" th:name="from" placeholder="гггг-мм-дд">
+                <input class="inputText" type="text" th:name="from" placeholder="гггг-мм-дд">
             </label>
             </p>
             <p>
             <label>
                 Дата возврата
-                <input type="text" th:name="til" placeholder="гггг-мм-дд">
+                <input class="inputText" type="text" th:name="til" placeholder="гггг-мм-дд">
             </label>
             </p>
             <p>
@@ -42,7 +41,7 @@
             </label>
             </p>
             <p>
-            <input type="submit" value="Выдать">
+            <input type="submit" value="Выдать" class="button">
             </p>
         </div>
     </form>

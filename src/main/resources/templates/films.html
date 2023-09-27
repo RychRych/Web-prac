@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
 </head>
 <body class="site">
 <main class="site-content">
@@ -15,16 +14,16 @@
             <form action="#" th:action="@{/films}" method="get">
                 Название
                 <label>
-                    <input type="text" th:name="title">
+                    <input class="inputText" type="text" th:name="title">
                 </label>
                 Год
                 <label>
-                    <input type="text" th:name="year">
+                    <input class="inputText" type="text" th:name="year">
                 </label>
-                <input type="submit" value="Поиск">
+                <input type="submit" value="Поиск" class="button">
             </form>
         </div>
-        <a th:href="@{/film}">Добавить фильм</a>
+        <a th:href="@{/film}" class="button">Добавить фильм</a>
     </div>
     <table>
         <thead>

@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Welcome</title>
   <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/dropdown.css}"/>
 </head>
 <body class="site">
 <main class="site-content">
@@ -14,22 +13,22 @@
     <p>
     <label>
       Полное имя:
-      <input th:name="name" th:value="${client.getClientName()}">
+      <input  class="inputText" th:name="name" th:value="${client.getClientName()}">
     </label>
     </p>
     <p>
     <label>
       Адрес:
-      <input th:name="address" th:value="${client.getClientAddress()}">
+      <input class="inputText" th:name="address" th:value="${client.getClientAddress()}">
     </label>
     </p>
     <p>
     <label>
       Телефон:
-      <input th:name="phone" th:value="${client.getClientPhone()}">
+      <input class="inputText" th:name="phone" th:value="${client.getClientPhone()}">
     </label>
     </p>
-    <input type="submit" value="Обновить информацию" >
+    <input type="submit" value="Обновить информацию" class="button">
   </form>
   <div th:if="${client.getId() != null}">
     <h3>Арендованые фильмы:</h3>
@@ -58,7 +57,7 @@
       </tr>
       </tbody>
     </table>
-    <a th:href="${'/transaction?clientId=' + client.getId()}">Выдать фильм</a>
+    <a th:href="${'/transaction?clientId=' + client.getId()}" class="button">Выдать фильм</a>
   </div>
 </main>
 
