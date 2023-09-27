@@ -13,6 +13,7 @@
     <p th:text="'Адрес: ' + ${client.getClientAddress()}"></p>
     <p th:text="'Телефон: ' + ${client.getClientPhone()}"></p>
   </div>
+  <a th:href="${'/transaction?clientId=' + client.getId()}">Выдать фильм</a>
 </main>
 
 <footer th:insert="general :: footer"></footer>
