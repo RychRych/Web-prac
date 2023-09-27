@@ -8,16 +8,21 @@
 </head>
 <body class="site">
 <main class="site-content">
-    <div id="filmInfo">
-        <h4 th:text="${film.getTitle()}"></h4>
-        <p th:text="'Компания: ' + ${film.getProduction_company()}"></p>
-        <p th:text="'Режиссер: ' + ${film.getDirector()}"></p>
-        <p th:text="'Год выпуска: ' + ${film.getYear_of_release()}"></p>
-        <p th:text="'Доступно дисков: ' + ${film.getAvailable_cd()}"></p>
-        <p th:text="'Стоимость диска: ' + ${film.getPrice_of_cd()}"></p>
-        <p th:text="'Доступно кассет: ' + ${film.getAvailable_cassette()}"></p>
-        <p th:text="'Стоимость кассеты: ' + ${film.getPrice_of_cassette()}"></p>
-    </div>
+    <form action="#" th:action="@{/film}" method="post">
+        <h4>Информация о фильме</h4>
+        <input th:if="${film.getId() != null}" style="display: none;" name="id" th:value="${film.getId()}">
+        <p><label>Название:  <input th:value="${film.getTitle()}" name="title"></label></p>
+        <p><label>Компания:  <input th:value="${film.getProduction_company()}" name="company"></label></p>
+        <p><label>Режиссер:  <input th:value="${film.getDirector()}" name="director"></label></p>
+        <p><label>Год выпуска:  <input th:value="${film.getYear_of_release()}" name="year"></label></p>
+        <p><label>Доступно дисков:  <input th:value="${film.getAvailable_cd()}" name="availableCd"></label></p>
+        <p><label>Стоимость диска:  <input th:value="${film.getPrice_of_cd()}" name="cdPrice"></label></p>
+        <p><label>Доступно кассет:  <input th:value="${film.getAvailable_cassette()}" name="availableCassette"></label></p>
+        <p><label>Стоимость кассеты:  <input th:value="${film.getPrice_of_cassette()}" name="cassettePrice"></label></p>
+        <p><label>Всего кассет:  <input th:value="${film.getTotal_of_cassette()}" name="cassetteTotal"></label></p>
+        <p><label>Всего дисков:  <input th:value="${film.getTotal_of_cd()}" name="cdTotal"></label></p>
+        <input type="submit" value="Обновить информацию">
+    </form>
 </main>
 
 <footer th:insert="general :: footer"></footer>
