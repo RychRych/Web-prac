@@ -68,11 +68,12 @@ public class GenericDAOImpl<T extends GenericModel> implements GenericDAO<T> {
     }
 
     @Override
-    public void update(T entity) {
+    public T update(T entity) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
-            session.update(entity);
+            T result = session.merge(entity);
             session.getTransaction().commit();
+            return result;
         }
     }
 

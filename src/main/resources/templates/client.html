@@ -8,38 +8,58 @@
 </head>
 <body class="site">
 <main class="site-content">
-  <div id="clientInfo">
-    <h2 th:text="${client.getClientName()}"></h2>
-    <p th:text="'Адрес: ' + ${client.getClientAddress()}"></p>
-    <p th:text="'Телефон: ' + ${client.getClientPhone()}"></p>
+  <form action="#" th:action="@{/client}" method="post">
+    <h2>Информация о клиенте</h2>
+    <input th:if="${client.getId() != null}" style="display: none;" name="clientId" th:value="${client.getId()}">
+    <p>
+    <label>
+      Полное имя:
+      <input th:name="name" th:value="${client.getClientName()}">
+    </label>
+    </p>
+    <p>
+    <label>
+      Адрес:
+      <input th:name="address" th:value="${client.getClientAddress()}">
+    </label>
+    </p>
+    <p>
+    <label>
+      Телефон:
+      <input th:name="phone" th:value="${client.getClientPhone()}">
+    </label>
+    </p>
+    <input type="submit" value="Обновить информацию" >
+  </form>
+  <div th:if="${client.getId() != null}">
+    <h3>Арендованые фильмы:</h3>
+    <table>
+      <thead>
+      <tr>
+        <th>
+          Название
+        </th>
+        <th>
+          От
+        </th>
+        <th>
+          До
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:if="${transactions.isEmpty()}">
+        <td colspan="3"> Клиентов не заказывал фильмов. </td>
+      </tr>
+      <tr th:each="transaction : ${transactions}">
+        <td><a th:text="${transaction.getFilm_title()}"> Название </a></td>
+        <td><span th:text="${transaction.getDate_of_lease()}"> От </span></td>
+        <td><span th:text="${transaction.getDate_of_return()}"> До </span></td>
+      </tr>
+      </tbody>
+    </table>
+    <a th:href="${'/transaction?clientId=' + client.getId()}">Выдать фильм</a>
   </div>
-  <h3>Арендованые фильмы:</h3>
-  <table>
-    <thead>
-    <tr>
-      <th>
-        Название
-      </th>
-      <th>
-        От
-      </th>
-      <th>
-        До
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${transactions.isEmpty()}">
-      <td colspan="3"> Клиентов не заказывал фильмов. </td>
-    </tr>
-    <tr th:each="transaction : ${transactions}">
-      <td><a th:text="${transaction.getFilm_title()}"> Название </a></td>
-      <td><span th:text="${transaction.getDate_of_lease()}"> От </span></td>
-      <td><span th:text="${transaction.getDate_of_return()}"> До </span></td>
-    </tr>
-    </tbody>
-  </table>
-  <a th:href="${'/transaction?clientId=' + client.getId()}">Выдать фильм</a>
 </main>
 
 <footer th:insert="general :: footer"></footer>
