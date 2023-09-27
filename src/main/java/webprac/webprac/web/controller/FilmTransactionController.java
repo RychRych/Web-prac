@@ -60,7 +60,7 @@ public class FilmTransactionController {
             transaction.setDate_of_return(java.sql.Date.valueOf(til));
 
             transactionDAO.save(transaction);
-            return new ClientController(clientDAO).client(id, model);
+            return new ClientController(clientDAO, transactionDAO).client(id, model);
         } catch (Exception ignored) {
             Client client = clientDAO.getById(id);
 

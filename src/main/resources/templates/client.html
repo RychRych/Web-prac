@@ -9,10 +9,36 @@
 <body class="site">
 <main class="site-content">
   <div id="clientInfo">
-    <h4 th:text="${client.getClientName()}"></h4>
+    <h2 th:text="${client.getClientName()}"></h2>
     <p th:text="'Адрес: ' + ${client.getClientAddress()}"></p>
     <p th:text="'Телефон: ' + ${client.getClientPhone()}"></p>
   </div>
+  <h3>Арендованые фильмы:</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>
+        Название
+      </th>
+      <th>
+        От
+      </th>
+      <th>
+        До
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${transactions.isEmpty()}">
+      <td colspan="3"> Клиентов не заказывал фильмов. </td>
+    </tr>
+    <tr th:each="transaction : ${transactions}">
+      <td><a th:text="${transaction.getFilm_title()}"> Название </a></td>
+      <td><span th:text="${transaction.getDate_of_lease()}"> От </span></td>
+      <td><span th:text="${transaction.getDate_of_return()}"> До </span></td>
+    </tr>
+    </tbody>
+  </table>
   <a th:href="${'/transaction?clientId=' + client.getId()}">Выдать фильм</a>
 </main>
 
