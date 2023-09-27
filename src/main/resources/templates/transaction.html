@@ -8,7 +8,7 @@
 </head>
 <body class="site">
 <main class="site-content">
-    <h1 th:text="${'Выдать фильм для ' + clientName}"></h1>
+    <h1>Выдать фильм для <a th:href="${'/client?id=' + clientId}" th:text="${clientName}"></a></h1>
     <h1 th:if="${error}">Ошибка, попробуйте ещё раз</h1>
 
     <form action="#" th:action="@{/transaction}" method="post">
