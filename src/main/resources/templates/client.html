@@ -28,7 +28,7 @@
       <input class="inputText" th:name="phone" th:value="${client.getClientPhone()}">
     </label>
     </p>
-    <input type="submit" value="Обновить информацию" class="button">
+    <input type="submit" th:name="update" value="Обновить информацию" class="button">
   </form>
   <div th:if="${client.getId() != null}">
     <h3>Арендованые фильмы:</h3>
@@ -48,7 +48,7 @@
       </thead>
       <tbody>
       <tr th:if="${transactions.isEmpty()}">
-        <td colspan="3"> Клиентов не заказывал фильмов. </td>
+        <td colspan="3"> Клиент не заказывал фильмов. </td>
       </tr>
       <tr th:each="transaction : ${transactions}">
         <td><a th:text="${transaction.getFilm_title()}"> Название </a></td>
@@ -57,7 +57,7 @@
       </tr>
       </tbody>
     </table>
-    <a th:href="${'/transaction?clientId=' + client.getId()}" class="button">Выдать фильм</a>
+    <a id="rent" th:href="${'/transaction?clientId=' + client.getId()}" class="button">Выдать фильм </a>
   </div>
 </main>
 

@@ -20,7 +20,7 @@
         <p><label>Стоимость кассеты:  <input  class="inputText" th:value="${film.getPrice_of_cassette()}" name="cassettePrice"></label></p>
         <p><label>Всего кассет:  <input class="inputText" th:value="${film.getTotal_of_cassette()}" name="cassetteTotal"></label></p>
         <p><label>Всего дисков:  <input class="inputText" th:value="${film.getTotal_of_cd()}" name="cdTotal"></label></p>
-        <input type="submit" value="Обновить информацию" class="button">
+        <input type="submit" value="Обновить информацию" class="button" th:name="update">
     </form>
 </main>
 
